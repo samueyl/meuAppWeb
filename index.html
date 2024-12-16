@@ -3,13 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu App</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Oliveira Energia</title>
+    <style>
+        /* Reset básico para remover margens e paddings padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo do corpo */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Evita barras de rolagem durante a animação */
+        }
+
+        /* Tela de Splash (Carregamento) */
+        .splash-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOut 3s forwards 2s; /* Dura 3s, inicia após 2s */
+            z-index: 10;
+        }
+
+        /* Animação de Fade Out para a Splash Screen */
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Container principal */
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2.5s; /* Dura 2s, inicia após 2.5s */
+        }
+
+        /* Animação de Fade In para o Container Principal */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Título */
+        .container h1 {
+            margin-bottom: 20px;
+            color: #343a40;
+            font-size: 2em;
+        }
+
+        /* Descrição */
+        .container p {
+            margin-bottom: 30px;
+            color: #6c757d;
+            font-size: 1em;
+        }
+
+        /* Botões estilizados */
+        .container button {
+            padding: 15px 30px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.4);
+            margin: 10px; /* Espaçamento entre os botões */
+            width: 80%;
+        }
+
+        .container button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 86, 179, 0.4);
+        }
+
+        /* Ícones dentro dos botões */
+        .container button i {
+            margin-right: 8px;
+        }
+
+        /* Responsividade para dispositivos menores */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .container h1 {
+                font-size: 1.5em;
+            }
+
+            .container button {
+                width: 100%;
+                padding: 12px 0;
+                font-size: 1em;
+            }
+        }
+    </style>
+    <!-- Font Awesome para ícones -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-papd5XxEUpYwqFOuZxYUyBqvJXyXLbSxmgU4K4E6bFXAlZzSB1D8R+YoI0CwN1xgQlkBOyr5WqJ2/QZGPuVjNQ==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
 </head>
 <body>
-    <h1>Olá, Mundo!</h1>
-    <button id="meuBotao">Clique Aqui</button>
+    <!-- Splash Screen com Animação -->
+    <div class="splash-screen">
+        <h1 style="font-size: 2.5em; color: #007bff;">Oliveira Energia</h1>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- Container Principal com Dois Botões -->
+    <div class="container">
+        <h1>Bem-vindo ao Meu App</h1>
+        <p>Clique nos botões abaixo para acessar nossos formulários.</p>
+        <button id="botaoFormulario">
+            <i class="fas fa-arrow-right"></i> Acessar Formulário
+        </button>
+        <button id="botaoComplemento">
+            <i class="fas fa-oil-can"></i> Complemento de Óleo
+        </button>
+    </div>
+
+    <script>
+        // Função para redirecionar ao clicar no primeiro botão
+        document.getElementById('botaoFormulario').addEventListener('click', () => {
+            window.location.href = 'https://forms.office.com/Pages/ResponsePage.aspx?id=0-cdWRooqUaZhIvWa917h9tsXX_Z1XtDtKlCPy7kpUdURTFTTzRORktHM1VDRDUwRUpJMkU0OU5OTyQlQCN0PWcu';
+        });
+
+        // Função para redirecionar ao clicar no segundo botão
+        document.getElementById('botaoComplemento').addEventListener('click', () => {
+            window.location.href = 'https://forms.office.com/Pages/ResponsePage.aspx?id=0-cdWRooqUaZhIvWa917h9tsXX_Z1XtDtKlCPy7kpUdURVI3TDRTUjRLNUxNTjVESU1QMTdVNEcwNSQlQCN0PWcu';
+        });
+    </script>
 </body>
 </html>
